@@ -1,0 +1,631 @@
+#in built, modular, call by value, call by reference
+
+
+#Functions:
+
+# def greet(name="Guest"):
+#     print("Hello", name)
+
+# greet()          # Hello Guest
+# greet("Alice")   # Hello Alice
+
+#--------------------------------------------
+#positional arguments:
+
+# def add(a, b):
+#     print(a + b)
+
+# add(10, 20)  
+
+#--------------------------------------------
+#positional-only arguments:
+# def add(a, b, /):
+#     print(a + b)
+
+# add(10, 20)       # Correct
+# add(a=10, b=20)   # Error
+#--------------------------------------------
+# keyword argument
+# def student(name, age):
+#     print(name, age)
+
+# student(name="Alice", age=20)
+
+# student(age=20, name="Alice")
+#--------------------------------------------
+# keyword-only argument
+
+# def student(name, *, age):
+#     print(name, age)
+
+# student("Alice", age=20)   # Correct
+# student("Alice", 20)       # Error
+
+#----------------------------------------------------
+# Functions:
+# Variables, data types, list,set, tuples and dictionaries
+
+#-----------------------------------------------------------
+#even or odd
+
+# def even_odd(a):
+#     if a%2==0:
+#         print(f'{a} number is even')
+#     else:
+#         print(f'{a} number is odd')
+
+# even_odd(59)
+
+#-----------------------------------------------
+#prime number
+
+# def prime(a):
+#         for i in range(2,a):
+#             if a%i==0:
+#                 print(f'{a} is not prime number')
+#                 return
+#         print(f'{a} is prime number')   
+
+# prime(10)
+
+#----------------------------------------------------------
+# Arbitary or variable positional arguments (*args)
+
+## sum of numbers
+# def add(*args):
+#    s=0
+#    for x in args:
+#       s=s+x
+#    return s
+# result = add(10,20,30,40)
+# print (result)
+
+# result = add(1,2,3)
+# print (result)
+
+# The args variable prefixed with "*" stores all the values passed to it.
+# Here, args becomes a tuple. We can run a loop over its items to add the numbers.
+
+#--------------------------------------------------------------------------------------
+#Arbitrary or variable Keyword Arguments (**kwargs)
+
+# def addr(**kwargs):
+#    for k,v in kwargs.items():
+#       print ("{}:{}".format(k,v))
+
+# print ("pass two keyword args")
+# addr(Name="John", City="Mumbai")
+# print ("pass four keyword args")
+
+# # pass four keyword args
+# addr(Name="Raam", City="Mumbai", ph_no="9123134567", PIN="400001")
+
+#-------------------------------------------------------------------------
+
+# def percent(math, sci, **optional):
+#    print ("maths:", math)
+#    print ("sci:", sci)
+#    s=math+sci
+#    for k,v in optional.items():
+#       print ("{}:{}".format(k,v))
+#       s=s+v
+#    return s/(len(optional)+2)
+
+# result=percent(math=80, sci=75, Eng=70, Hist=65, Geo=72)
+# print ("percentage:", result)
+
+#-------------------------------------------------------------------
+
+#factorial 
+
+# def factorial(n):
+#     fact = 1
+#     for i in range(1, n + 1):
+#         fact = fact * i
+#     return fact
+
+
+# num = int(input("Enter a number: "))
+
+# result = factorial(num)
+
+# print("Factorial of", num, "is", result)
+
+#---------------------------------------------------------------
+# strong
+
+# def factorial(n):
+#     fact = 1
+#     for i in range(1, n + 1):
+#         fact = fact * i
+#     return fact
+
+
+# def is_strong(num):
+#     original = num
+#     total = 0
+
+#     while num > 0:
+#         digit = num % 10
+#         total = total + factorial(digit)
+#         num = num // 10
+
+#     return total == original
+
+
+# num = int(input("Enter a number: "))
+
+# if is_strong(num):
+#     print(num, "is a Strong Number")
+# else:
+#     print(num, "is not a Strong Number")
+
+#-----------------------------------------------------------------
+# Palindrome, Armstrong Number
+
+# def is_palindrome(num):
+#     original = num
+#     reverse = 0
+
+#     while num > 0:
+#         digit = num % 10
+#         reverse = reverse * 10 + digit
+#         num = num // 10
+
+#     return original == reverse
+
+
+# num = int(input("Enter a number: "))
+
+# if is_palindrome(num):
+#     print(num, "is a Palindrome")
+# else:
+#     print(num, "is not a Palindrome")
+
+    # find reverese of a number palindrome we get ,, then  factorial value , 
+    # factorial value gives strong number ,,if we find  power of a and b --> armstrong number
+
+#------------------------------------------------------------------
+
+#Function annotations
+#The function annotation feature of Python enables you to add additional explanatory metadata
+#  about the arguments declared in a function definition, and also the return data type.
+
+# def myfunction(a: int, b: int):
+#    c = a+b
+#    return c
+   
+# print (myfunction(10,20))
+# print (myfunction("Hello ", "Python"))
+
+#--------------------------------------------
+
+#Function Annotations With Return Type
+
+# def myfunction(a: int, b: int) -> int:
+#    c = a+b
+#    return c
+# print(myfunction(56,88))
+# print(myfunction.__annotations__)
+
+#-----------------------------------------
+
+#Function Annotations With Expression
+
+# def total(x : 'marks in Physics', y: 'marks in chemistry'):
+#    return x+y
+# print(total(86, 88))
+# print(total.__annotations__)
+
+#-------------------------------------------------------------
+
+#Function Annotations With Default Arguments
+
+# def myfunction(a: "physics", b:"Maths" = 20) -> int:
+#    c = a+b
+#    return c
+# print (myfunction(10))
+
+# #The function in Python is also an object, and one of its
+# #  attributes is __annotations__. You can check with dir() function.
+
+# print (dir(myfunction))
+
+#---------------------------------------------------------------------
+
+#Variable Scope : Global, Local and Non-Local Variable
+
+#Global Variable:
+
+#A global variable can be accessed from any part of the program, and it is defined 
+# outside any function or block of code. It is not specific to any block or function.
+
+# name = 'TutorialsPoint'
+# marks = 50
+# def myfunction():
+#    # accessing inside the function
+#    print("name:", name)
+#    print("marks:", marks)
+# # function call   
+# myfunction()
+
+#----------------------------------------------
+
+#Local variables:
+
+#A local variable is defined within a specific function or block of code. 
+# It can only be accessed by the function or block where it was defined, and it has a limited scope.
+
+# def myfunction():
+#    a = 10
+#    b = 20
+#    print("variable a:", a)  #Variable a is in local space
+#    print("variable b:", b)
+#    return a+b
+   
+# print (myfunction())
+
+# In order to modify local varaiable to global add global to variable
+
+# def myfunction():
+#    global a = 10    #Variable a is a global variable
+#    b = 20
+#    print("variable a:", a)  
+#    print("variable b:", b)
+#    return a+b
+
+#------------------------------------------------------------------
+
+#Non-Local Variables:
+
+# The Python variables that are not defined in either local or global 
+# scope are called nonlocal variables. They are used in nested functions.
+
+#in order to create a non-local space nested functions are necessary.
+
+# def yourfunction():
+#    a = 5
+#    b = 6 
+#    # nested function
+#    def myfunction():
+#       # nonlocal function 
+#       nonlocal a
+#       nonlocal b
+#       a = 10
+#       b = 20 
+#       print("variable a:", a)
+#       print("variable b:", b)
+#       return a+b
+#    print (myfunction())
+# yourfunction()
+
+#Output:  
+# variable a: 10
+# variable b: 20
+# 30
+
+#-----------------------------------------------------
+#Disarum Number 
+
+# def is_disarium(num):
+#     original = num
+#     total =0
+#     length = len(str(num))
+#     while num>0:
+#         digit = num%10
+#         total = total + (digit ** length)
+#         num = num // 10
+#         length = length - 1 
+#     return total == original
+
+
+# num =89
+# if is_disarium(num):
+#     print(f'{num} is a disarum number')
+# else:
+#     print(f'{num} is not a disarum number')
+
+
+
+#-------------------------------------------------------
+# Happy Number
+
+# def is_Happy(num):
+#     total = 0
+
+#     if num == 1:
+#         return True
+#     if num == 4:
+#         return False
+    
+#     while num>0:
+#         digit = num%10
+#         total = total + (digit ** 2)
+#         num = num // 10
+    
+    
+#     return is_Happy(total)
+
+# num = int(input("Enter a number: "))  
+# if is_Happy(num):
+#     print(f'{num} is a happy number')
+# else:
+#     print(f'{num} is a sad number')
+
+
+#-------------------------------------------------------
+
+# def square(num):
+#     if num==0:
+#         return 0
+#     return ((num%10)**2 + square(num//10))
+
+# def is_happy(num):
+#     if num<=9:
+#         return num
+#     var=square(num)
+#     return is_happy(var)
+
+# num=90
+# val=is_happy(num)
+# print(f'The Number {num} is a Happy Number' if val==1 or val==7 else f"The Number {num} is not a Happy Number")
+
+#--------------------------------------
+#Python modules:
+
+#These are mainly pre defined values. pyhon has in-built keywords to use modules.
+#A module is a file containing definition of functions, classes, variables, constants or any other Python object. 
+# Contents of this file can be made available to any other program. 
+# Python has the import keyword for this purpose.
+#Python's standard library comes bundled with a large number of modules. 
+# They are called built-in modules
+
+# import math
+# print ("Square root of 100:", math.sqrt(100))
+# print(math.factorial(10))
+
+#------------------------------------------------------------
+# python built-in function
+
+# Using print() and len() function
+
+# text = "Tutorials Point"
+
+# print(len(text)) # Prints 15
+
+#--------------------------------------------------------------
+# Special function
+
+# lambda function: lambda is a keyword in python.
+# A function is created by using lambda function.
+# This function is also called as a small anyamous function.
+# Lambda function can take multiple values but returns only single value.
+
+#lambda arguments : expression
+# x = lambda a : a + 10
+# print(x(5))
+
+# #------------------
+# x = lambda a, b : a * b
+# print(x(5, 6))
+
+# #----------------
+# def myfunc(n):
+#   return lambda a : a * n
+
+# mydoubler = myfunc(2)
+
+# print(mydoubler(11))
+
+#--------------------------------------
+
+# git hub: 
+
+# create a project in github
+# create a branch called dev
+# Do the daily commits
+
+# def is_armstrong(num):
+#     digits = str(num)
+#     n = len(digits)
+#     total = sum(int(d) ** n for d in digits)
+#     return total == num
+
+# print(is_armstrong(153))
+
+# def is_disarium(num):
+#     digits = str(num)
+#     total = sum(int(d) ** (i + 1) for i, d in enumerate(digits))
+#     return total == num
+
+# print(is_disarium(135))
+
+
+# count = 0
+
+# def increment():
+#     count = count + 1
+#     return count
+
+# print(increment())
+
+count = 0
+
+# def increment():
+#     global count
+#     count = count + 1
+#     return count
+
+# print(increment())
+# print(increment())
+
+# nums = [1, 2, 3, 4]
+# result = map(lambda x: x * x, nums)
+# print(result)
+# print(list(result))
+
+#--------------------------------------------------
+
+# map function
+
+#The Python map() function is a built-in function that allows us to transform each item from an iterable with the help of a process known as mapping. In this process, the map() function applies a function on every element of the given iterable and returns a new iterable object.
+
+# An iterable is an object that allows us to access one item at a time by iterating over them. 
+# Some examples of iterable include lists, tuples, strings, and so on.
+
+# write a program to print prime using map function
+#collection data types: list, touple, set, dict, String, Range
+
+
+#------------------------------------------------------------
+#filter function
+
+#filter function is an in-built function accordingto user requirments
+
+#filter(function, iterable)
+
+# numerics = [59, 22, 71, 65, 12, 6, 19, 28, 17, 5]
+# lstOfevenNums = list(filter(lambda x: (x % 2 == 0), numerics))
+# print("The list of even numbers from the list:")
+# print(lstOfevenNums)
+
+#-----------------------------------------------------------------------
+# all number programs
+#reduce function:
+
+#The Python reduce() function reduces the multiple arguments into a single value. 
+# This function returns an aggregated value by applying it to an iterable.
+
+#reduce(func, iterable, initializer)
+
+# import functools
+# list = [5, 10, 15, 20, 25]
+# print("The sum of the list is : ", end="")
+# print(functools.reduce(lambda x, y: x+y, list))
+# print("The maximum elements are : ", end="")
+# print(functools.reduce(lambda x, y:   x if x > y else y, list))
+
+#------------------------------------------------------------------------
+# write a python program to print range(1,6) using the reduce function multiply and print value.
+
+# import functools
+# print("The sum of range(1,6) is : ", end="")
+# print(functools.reduce(lambda x, y:x*y, range(1,6)))
+
+#-------------------------------------
+
+#pattern programs:
+# write a program to print * in traingle form(5 roes)
+
+# rows = int(input())
+# for i in range(1,rows+1):
+#         print("* " * i)
+
+#-----------------------------------------------------
+
+#write a program to print
+# 1
+# 1 2
+# 1 2 3 
+# 1 2 3 4
+# 1 2 3 4 5 
+
+# rows = int(input())
+# for row in range(1,rows+1):
+#     print(end="\n")  # use this or last print()
+#     for column in range(1,row+1):
+#         print(column, end="")
+#     #print()
+
+#------------------------------------------------------
+#write a program to print
+#       *
+#     * *
+#   * * *
+# * * * *
+
+# rows = int(input())
+# space = rows -1
+# for row in range(1,rows+1):
+#     print(' '*space + '*' * row)
+#     space-=1
+
+#------------------------------------------------------
+# write a program to print
+#
+#       *
+#     * * *
+#   * * * * *
+# * * * * * * *
+
+# rows = int(input())
+# space = rows-1
+# for i in range(1,rows+1):
+    
+#     for j in range(1,space+1):
+#         print("  ",end="")
+
+#     space-=1
+
+#     for k in range(2*i-1):
+#         print("* ",end="")
+#     print()
+
+
+
+# num=5
+# for i in range(1,num+1):
+#   print("  "*(num-i)+"* "*(2*i-1))
+
+#---------------------------------------------------------------
+
+#write a program to print the palindromes in a string.
+
+# string="Madam Arora teaches malayalam at noon."
+
+# words=string.split()
+
+# for word in words:
+#     word=word.lower()
+#     word= ''.join(char for char in word if char.isalnum()) 
+#     if word==word[::-1]:
+#         print(f"{word} is palindrome")
+  
+  
+
+#write a program to check given number is emirp number or not.
+
+
+# def prime(a):
+#         if a<2:
+#              return False
+#         for i in range(2,int(a**0.5)+1):
+#             if a%i==0:
+#                 #print(f'{a} is not prime number')
+#                 return False
+#         #print(f'{a} is a prime number')
+#         return True  
+
+
+# def emirp(n):
+#     original=n
+#     reverse=0
+#     digit=0
+#     while n>0:
+#         digit=n%10
+#         reverse=reverse*10 + digit
+#         n=n//10
+#     if original!=reverse and prime(original) and prime(reverse) and (reverse-original)%18==0:
+#         return print(f"{original} is a eimrp number")
+#     else:
+#         return print(f"{original} is not a eimrp number")
+         
+
+# emirp(17)
+
+#-----------------------------------------------------------------
+
+a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)
